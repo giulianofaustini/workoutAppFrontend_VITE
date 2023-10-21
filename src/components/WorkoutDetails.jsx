@@ -1,4 +1,6 @@
 import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const WorkoutDetails = ({ workout }) => {
 
@@ -21,7 +23,9 @@ const WorkoutDetails = ({ workout }) => {
           <p><strong>Load:(Kg)</strong> {workout.load} </p>
           <p><strong>Reps:</strong> {workout.reps} </p>
       <p>{workout.createdAt}</p>
-      <span onClick={handleClick}>delete</span>
+      <span onClick={handleClick}>
+        <FontAwesomeIcon icon={faTrash} />
+      </span>
    </div>
   )
 }
