@@ -2,6 +2,9 @@ import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
+// date fns
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+
 const WorkoutDetails = ({ workout }) => {
 
   const { dispatch } = useWorkoutsContext()
@@ -22,7 +25,7 @@ const WorkoutDetails = ({ workout }) => {
           <h4>{workout.title}</h4>
           <p><strong>Load:(Kg)</strong> {workout.load} </p>
           <p><strong>Reps:</strong> {workout.reps} </p>
-      <p>{workout.createdAt}</p>
+      <p>{formatDistanceToNow(new Date(workout.createdAt), {addSuffix: true})}</p>
       <span onClick={handleClick}>
         <FontAwesomeIcon icon={faTrash} />
       </span>
